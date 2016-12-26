@@ -5,6 +5,9 @@
     <title>Dates</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script src="js/jquery-2.1.4.js"></script>
+    <script src="js/jdiObject.js"></script>
+    <script src="js/inspWindowContent.js"></script>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/uui-all.css" />
 	<link rel="stylesheet" href="css/custom-styles.css" />
@@ -28,6 +31,14 @@
         <script src="js/lib/html5shiv.js"></script>
         <script src="js/lib/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+    [jdi-name]{
+/*	   width:100px;
+	   height:100px;*/
+	   /*background-color:rgba(1,1,1,0.5);*/
+	   /*outline*/:2px solid black;
+    }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -180,7 +191,7 @@
 					</div>
 					<div class="info-panel-body info-panel-body-log">
 						<div class="info-panel-section">
-							<ul class="panel-body-list logs">
+							<ul class="panel-body-list logs" jdi-type="IElement" jdi-name="results">
 							</ul>
 						</div>
 					</div>
@@ -191,7 +202,7 @@
 					</div>
 					<div class="info-panel-body info-panel-body-result">
 						<div class="info-panel-section">
-							<ul class="panel-body-list results">
+							<ul class="panel-body-list results" jdi-type="IElement" jdi-name="log">
 							</ul>
 						</div>
 					</div>
@@ -203,18 +214,18 @@
 				<div class="pattern-top"></div>
 				<div class="main-content">
 					<div class="main-content-hg">
-						<form class="form">
+						<form class="form" jdi-type="Form" jdi-gen="Contact" jdi-name="contactForm">
 							<div class="row overflow">
 								<div class="col-sm-6">
 									<div class="form-group form-group10">
 										<label for="Name">Name</label>
-										<input id="Name" type="text" class="uui-form-element">
+										<input id="Name" type="text" class="uui-form-element" jdi-type="ITextField" jdi-name="Name" jdi-parent="contactForm">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group form-group10">
 										<label for="LastName">Last Name</label>
-										<input id="LastName" type="text" class="uui-form-element">
+										<input id="LastName" type="text" class="uui-form-element" jdi-type="ITextField" jdi-name="LastName" jdi-parent="contactForm">
 									</div>
 								</div>
 							</div>
@@ -222,7 +233,7 @@
 								<div class="col-sm-12">
 									<div class="form-group">
 										<label for="Description">Description</label>
-										<textarea class="uui-form-element" rows="8" cols="10" id="Description"></textarea>
+										<textarea class="uui-form-element" rows="8" cols="10" id="Description" jdi-type="ITextArea" jdi-name="description" jdi-parent="contactForm"></textarea>
 									</div>
 								</div>
 							</div>
@@ -231,7 +242,7 @@
 									<div class="clearfix">
 										<label class="label-date">Period</label>
 										<div id="datepicker" class="date uui-datepicker date-button small">
-											<input type="text" class="uui-form-element small" />
+											<input type="text" class="uui-form-element small" jdi-type="IDatePicker" jdi-parent="contactForm" jdi-name="date"/>
 											<span class="input-group-addon uui-button small">
 												<i class="fa fa-calendar"></i>
 											</span>
@@ -242,7 +253,7 @@
 									<div class="clearfix">
 										<label class="label-date">Time</label>
 										<div class="input-append bootstrap-timepicker uui-timepicker time-button">
-											<input id="timepicker" type="text" class="uui-form-element small" />
+											<input id="timepicker" type="text" class="uui-form-element small" jdi-type="ITimePicker" jdi-parent="contactForm" jdi-name="time"/>
 											<span class="add-on uui-button small">
 												<i class="fa fa-clock-o"></i>
 											</span>
@@ -256,7 +267,7 @@
 												<i class="fa fa-upload"></i>
 											</span>
 										</a>
-                                        <input type="file" name="..." style="-moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; width: 0; height: 0; position:absolute;" />
+                                        <input type="file" name="..." style="-moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; width: 0; height: 0; position:absolute;" jdi-type="RFileInput" jdi-parent="contactForm" jdi-name="imageInput"/>
                                         <label class="filename hidden">File "<span></span>" has been uploaded!</label>
 									</div>
 								</div>
@@ -264,30 +275,30 @@
 							<div class="row">
 								<div class="col-sm-5">
 									<label for="Name">Range 1</label>
-									<div class="range-from overflow">
+									<div class="range-from overflow" jdi-type="IRange" jdi-parent="contactForm" jdi-name="range1">
 										<span>From</span>
-										<input type="text" class="uui-form-element">
+										<input jdi-type="ITextField" jdi-parent="range1" jdi-name="min" type="text" class="uui-form-element">
 										<span>to</span>
-										<input type="text" class="uui-form-element">
+										<input jdi-type="ITextField" jdi-parent="range1" jdi-name="max" type="text" class="uui-form-element">
 									</div>
 								</div>
 								<div class="col-sm-5">
 									<label for="Name">Range 2</label>
-									<div class="uui-slider blue range">
+									<div class="uui-slider blue range" jdi-type="IRange" jdi-parent="contactForm" jdi-name="range2" type="range" class="uui-form-element">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-12 text-right">
-									<button class="uui-button dark-blue m-t35" type="submit">Submit</button>
+									<button class="uui-button dark-blue m-t35" type="submit" jdi-type="IButton" jdi-parent="contactForm" jdi-name="submit">Submit</button>
 								</div>
 							</div>
 						</form>
 					</div>
-					<ul class="uui-pagination">
-						<li class="prev"><a href="#"><i class="fa fa-long-arrow-left"></i></a></li>
-						<li class="first"><a href="#">First</a></li>
-						<li class="last"><a href="#">Last</a></li>
-						<li class="next"><a href="#"><i class="fa fa-long-arrow-right"></i></a></li>
+					<ul class="uui-pagination" jdi-type="IPagination" jdi-name="pagination1">
+						<li class="prev" jdi-type="IElement" jdi-parent="pagination1" jdi-name="prev"><a href="#"><i class="fa fa-long-arrow-left"></i></a></li>
+						<li class="first" jdi-type="IElement" jdi-parent="pagination1" jdi-name="first"><a href="#">First</a></li>
+						<li class="last" jdi-type="IElement" jdi-parent="pagination1" jdi-name="last"><a href="#">Last</a></li>
+						<li class="next" jdi-type="IElement" jdi-parent="pagination1" jdi-name="next"><a href="#"><i class="fa fa-long-arrow-right"></i></a></li>
 					</ul>
 				</div>
 			</main>
